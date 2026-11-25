@@ -1,0 +1,103 @@
+/* 와이드 pc  */
+
+	
+.videoBox{width:100%;height:100%; overflow:hidden; position:absolute}
+
+#imgBG{position: fixed; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -100;}
+
+/* SCROLL DOWN */
+.videoBox .down{position: absolute; left: 50%; bottom: 8%; z-index: 2; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px;}
+.videoBox .down .gauge_img{position: relative; width: 60px; height: 60px; margin-bottom: -14px;}
+.videoBox .down .gauge_img img{position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+.videoBox .down .needle_img{transform-origin: 50% 50%; transform: rotate(-120deg);}
+.videoBox .down:hover .needle_img{animation: rev 2.4s cubic-bezier(.6,0,.3,1) infinite;}
+.videoBox .down span{font-size: var(--font-12-size); letter-spacing: 0.1em; color: var(--color-font2); white-space: nowrap;}
+@keyframes rev{
+	0%{transform: rotate(-120deg);}
+	55%{transform: rotate(95deg);}
+	70%{transform: rotate(88deg);}
+	100%{transform: rotate(-120deg);}
+}
+#content{ width:100%; margin:0; background:rgba(0,0,0,.9);position: relative;}
+#content h2{position: absolute; top: -37vh; left: 10%; margin-top: -30px; transform: translateY(-100%);
+   font-size: 6rem; line-height: 1; color: var(--color-font1);}
+#content .visual_txt{position: absolute; top: -38vh; left: 10%; padding-left: 24px; border-left: 2px solid var(--color-main); font-family: "Manrope"; font-weight: 100; font-size: var(--font-20-size); line-height: 1.2; color: var(--color-font1);}
+#content .visual_side{position: absolute; top: -60vh; right: 40px; writing-mode: vertical-rl; font-family: "Manrope"; font-weight: 300; font-size: var(--font-12-size); letter-spacing: .3em; color: var(--color-font1);}
+
+.box{width: 100%; margin: 0 auto;}
+.masonry { /* Masonry container */
+    column-count: 5;  /* 단의 개수 */
+    column-gap: .5%;  /* 단사이 거리 */
+    column-width: 19.5%;  /* 한 단의 너비(px/%) */
+}
+
+.item { 
+    display: inline-block;
+    margin-bottom: 10px;
+     /*width: 100%;*/
+}
+#content section{padding: 100px;}
+#content h3{margin-top: 10px; font-size: var(--font-h3-size); line-height: 1.1; color: var(--color-font1);}
+#content .gallery_list{margin-top: 0;}
+#content .gallery_txt{margin-top: 10px; margin-bottom: 50px; font-size: var(--font-14-size); line-height: 1.6; color: var(--color-font3);}
+#content .gallery_txt span{margin-right: 15px; font-weight: 700; letter-spacing: 0.1em; color: var(--color-main);}
+#content .masonry .item{position: relative; overflow: hidden;}
+#content .masonry .item img{display: block; width: 100%; filter: brightness(0.7); transition: transform 0.6s, filter 0.6s;}
+#content .masonry .item:hover img{filter: brightness(1); transform: scale(1.05);}
+        	
+@media screen and (max-width:1280px) {
+	.masonry { /* Masonry container */
+		column-count: 4;  /* 단의 개수 */
+		column-width: 24.5%;  /* 한 단의 너비(px/%) */
+	}
+}
+@media screen and (max-width:1024px) {
+	.masonry { /* Masonry container */
+		column-count: 3;  /* 단의 개수 */
+		column-width: 32.833%;  /* 한 단의 너비(px/%) */
+		#content section{padding-left: 60px; padding-right: 60px;}
+		#content h3{font-size: var(--font-h5-size);}
+	}
+	#headerArea .headerInner{margin: 0 60px;}
+	#footerArea{padding: 100px 60px 30px;}
+	#headerArea #gnb > ul{display: flex; gap: 30px;}
+	#headerArea #gnb > ul > li{width: auto; margin: 0; padding: 0;}
+	#headerArea #gnb > ul > li > h3,
+	#headerArea #gnb > ul > li > h3 > a{font-size: var(--font-14-size); letter-spacing: 0.1em; white-space: nowrap;}
+	#content h2{font-size: 4.5rem;}
+}
+@media screen and (max-width:768px) {
+	.masonry { /* Masonry container */
+		column-count: 2;  /* 단의 개수 */
+		column-width: 49.5%;  /* 한 단의 너비(px/%) */
+	}
+	#headerArea{height: auto;}
+	#headerArea .headerInner{height: 70px;}
+	#headerArea .menuOpen{display: block; position: static; margin: 0;}
+	#gnb{display: none;}
+	#content .visual_side{display: none;}
+	#content h2{font-size: var(--font-h2-size);}
+	#content h3{font-size: var(--font-h6-size);}
+}
+@media screen and (max-width:640px) {
+	.masonry { /* Masonry container */
+		column-count: 1;  /* 단의 개수 */
+		column-gap: 0;  /* 단사이 거리 */
+		column-width: 100%;  /* 한 단의 너비(px/%) */
+	}
+	#content .masonry .item{width: 100%;}
+	#headerArea .headerInner{margin: 0 20px;}
+    #content section{padding-left: 20px; padding-right: 20px;}
+	#content h3{font-size: var(--font-h6-size);}
+	#content .sec_num{font-size: var(--font-12-size);}
+	#content section .sec_txt{font-size: var(--font-14-size); line-height: 1.5;}
+    #footerArea{padding: 80px 20px 30px;}
+	.videoBox .down .gauge_img{width: 50px; height: 50px;}
+   	.videoBox .down .gauge_img img{width: 100%;}
+}
+@media screen and (max-width:480px) {
+	#content .visual_txt{font-size: var(--font-14-size);}
+	#content h2{font-size: var(--font-h5-size);}
+	#footerArea{grid-template-columns: 1fr; grid-template-areas: 'a' 'b' 'c' 'd' 'e' 'f'; padding: 100px 15px 30px;}
+	#footerArea .est{justify-self: start; text-align: left;}
+}
